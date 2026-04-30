@@ -34,6 +34,16 @@ def test_area_of_circle_zero_radius():
     assert result == 0
 
 
+def test_area_of_circle_negative_radius():
+    """Test with a negative radius."""
+    # Arrange
+    radius = -1
+
+    # Act & Assert
+    with pytest.raises(ValueError):
+        area_of_circle(radius)
+
+
 def test_get_nth_fibonacci_zero():
     """Test with n=0."""
     # Arrange
@@ -59,15 +69,34 @@ def test_get_nth_fibonacci_one():
 
 
 def test_get_nth_fibonacci_ten():
- """Test with n=10."""
- # Arrange
- n = 10
+    """Test with n=10."""
+    # Arrange
+    n = 10
 
- # Act
- result = get_nth_fibonacci(n)
+    # Act
+    result = get_nth_fibonacci(n)
 
- # Assert
- assert result == 89
+    # Assert
+    assert result == 89
 
- # Assert
- assert result == 89
+
+def test_get_nth_fibonacci_negative():
+    """Test with negative n."""
+    # Arrange
+    n = -1
+
+    # Act & Assert
+    with pytest.raises(ValueError):
+        get_nth_fibonacci(n)
+
+
+def test_get_nth_fibonacci_two():
+    """Test with n=2 to cover the iterative path."""
+    # Arrange
+    n = 2
+
+    # Act
+    result = get_nth_fibonacci(n)
+
+    # Assert
+    assert result == 1
