@@ -44,6 +44,30 @@ def test_area_of_circle_negative_radius():
         area_of_circle(radius)
 
 
+def test_area_of_circle_large_radius():
+    """Test with a large positive radius."""
+    # Arrange
+    radius = 100
+
+    # Act
+    result = area_of_circle(radius)
+
+    # Assert
+    assert abs(result - 31415.926) < 0.01
+
+
+def test_area_of_circle_float_radius():
+    """Test with a float radius."""
+    # Arrange
+    radius = 2.5
+
+    # Act
+    result = area_of_circle(radius)
+
+    # Assert
+    assert abs(result - 19.6350) < 1e-3
+
+
 def test_get_nth_fibonacci_zero():
     """Test with n=0."""
     # Arrange
@@ -100,3 +124,27 @@ def test_get_nth_fibonacci_two():
 
     # Assert
     assert result == 1
+
+
+def test_get_nth_fibonacci_five():
+    """Test with n=5 for additional iterative coverage."""
+    # Arrange
+    n = 5
+
+    # Act
+    result = get_nth_fibonacci(n)
+
+    # Assert
+    assert result == 5
+
+
+def test_get_nth_fibonacci_twenty():
+    """Test with n=20 for deeper iterative coverage."""
+    # Arrange
+    n = 20
+
+    # Act
+    result = get_nth_fibonacci(n)
+
+    # Assert
+    assert result == 6765
